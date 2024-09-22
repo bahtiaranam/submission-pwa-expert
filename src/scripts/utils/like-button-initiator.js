@@ -12,10 +12,12 @@ const LikeButtonInitiator = {
   async _renderButton() {
     const { id } = this._movie;
 
-    if (await this._isMovieExist(id)) {
-      this._renderLiked();
-    } else {
-      this._renderLike();
+    if (id) {
+      if (await this._isMovieExist(id)) {
+        this._renderLiked();
+      } else {
+        this._renderLike();
+      }
     }
   },
 

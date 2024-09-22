@@ -5,7 +5,10 @@ const Home = {
   async render() {
     return `
         <div class="landing__view">
-          <img class="landing-page" src="/images/heros/hero-image_4.jpg" alt="Dicoding Fact Sheet" />
+          <picture>
+            <source media="(max-width: 600px)" srcset="./images/hero-image_4-small.jpg">
+            <img class="landing-page" src='./images/hero-image_4-large.jpg' alt="Dicoding Fact Sheet">
+          </picture>
         </div>
         <div class="content">
             <h2 class="content__heading">Explore Resturants</h2>

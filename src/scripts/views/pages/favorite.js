@@ -7,7 +7,6 @@ const Favorite = {
           <div class="content">
             <h2 class="content__heading">Your Favorites Restaurant</h2>
             <div id="movies" class="movies">
-      
             </div>
           </div>
         `;
@@ -18,9 +17,15 @@ const Favorite = {
     const movies = await FavoriteMovieIdb.getAllMovies();
     const moviesContainer = document.querySelector('#movies');
 
-    movies.forEach((movie) => {
-      moviesContainer.innerHTML += createRestaurantItemTemplate(movie);
-    });
+    if (movies.length === 0) {
+      moviesContainer.innerHTML = `
+        <p class="movie-item__not__found">Tidak ada film untuk ditampilkan</p>
+      `;
+    } else {
+      movies.forEach((movie) => {
+        moviesContainer.innerHTML += createRestaurantItemTemplate(movie);
+      });
+    }
   },
 };
 
