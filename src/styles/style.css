@@ -125,10 +125,10 @@ main {
   width: 100%;
 }
 /*
-  Movies
+  Restaurants
 */
  
-.movies {
+.restaurants {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
@@ -137,26 +137,26 @@ main {
  
  
 /*
-  Movie Item
+  restaurant Item
 */
  
-.movie-item {
+.restaurant-item {
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
 }
  
-.movie-item__header {
+.restaurant-item__header {
   position: relative;
 }
  
-.movie-item .movie-item__header .movie-item__header__poster {
+.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
   width: 100%;
   height: 240px;
 }
  
-.movie-item .movie-item__header .movie-item__header__rating {
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating {
   position: absolute;
   padding: 8px;
   bottom: 20px;
@@ -166,21 +166,21 @@ main {
   color: white;
 }
  
-.movie-item .movie-item__header .movie-item__header__rating .movie-item__header__rating__score {
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating .restaurant-item__header__rating__score {
   margin-left: 10px;
 }
  
-.movie-item .movie-item__content {
+.restaurant-item .restaurant-item__content {
   padding: 16px;
 }
  
-.movie-item .movie-item__content h3 {
+.restaurant-item .restaurant-item__content h3 {
   margin: 0 0 10px 0;
   color: #db0000;
   text-decoration: none;
 }
  
-.movie-item .movie-item__content p {
+.restaurant-item .restaurant-item__content p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -189,7 +189,7 @@ main {
   -webkit-box-orient: vertical;
 }
 
-.movie-item .movie-item__content button {
+.restaurant-item .restaurant-item__content button {
   width: 100%;
   padding: 8px;
   background-color: #fff;
@@ -204,17 +204,17 @@ main {
   border: 1px solid #5b75d2;
 }
 
-.movie-item .movie-item__content button:hover {
+.restaurant-item .restaurant-item__content button:hover {
   background-color: #5b75d2;
   color: white;
 }
  
  
 /*
-  Movie
+  restaurant
 */
  
-.movie {
+.restaurant {
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
@@ -223,23 +223,23 @@ main {
   gap: 18px 16px;
 }
  
-.movie .movie__poster {
+.restaurant .restaurant__poster {
   width: 100%;
   max-width: 400px;
 }
  
-.movie .movie__info h4 {
+.restaurant .restaurant__info h4 {
   margin: 8px 0;
 }
 
-.movie .movie__menus p{
+.restaurant .restaurant__menus p{
   margin-bottom: 10px;
 }
 
-.movie .movie__review h4 {
+.restaurant .restaurant__review h4 {
   font-size: 16px;
 }
-.movie .movie__review div {
+.restaurant .restaurant__review div {
   margin-bottom: 10px;
   font-size: 14px;
 }

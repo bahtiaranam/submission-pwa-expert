@@ -1,4 +1,4 @@
-import FavoriteMovieIdb from '../../data/favorite-movie-idb';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Favorite = {
@@ -6,7 +6,7 @@ const Favorite = {
     return `
           <div class="content">
             <h2 class="content__heading">Your Favorites Restaurant</h2>
-            <div id="movies" class="movies">
+            <div id="restaurants" class="restaurants">
             </div>
           </div>
         `;
@@ -14,16 +14,16 @@ const Favorite = {
 
   async afterRender() {
     // Fungsi ini akan dipanggil setelah render()
-    const movies = await FavoriteMovieIdb.getAllMovies();
-    const moviesContainer = document.querySelector('#movies');
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+    const restaurantsContainer = document.querySelector('#restaurants');
 
-    if (movies.length === 0) {
-      moviesContainer.innerHTML = `
-        <p class="movie-item__not__found">Tidak ada film untuk ditampilkan</p>
+    if (restaurants.length === 0) {
+      restaurantsContainer.innerHTML = `
+        <p class="restaurant-item__not__found">Tidak ada film untuk ditampilkan</p>
       `;
     } else {
-      movies.forEach((movie) => {
-        moviesContainer.innerHTML += createRestaurantItemTemplate(movie);
+      restaurants.forEach((restaurant) => {
+        restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
       });
     }
   },

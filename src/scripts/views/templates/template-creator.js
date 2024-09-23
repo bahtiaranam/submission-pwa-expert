@@ -1,9 +1,9 @@
 import CONFIG from '../../globals/config';
 
-const createMovieDetailTemplate = (item) => `
-  <h2 class="movie__title">${item.name}</h2>
-  <img class="lazyload movie__poster" src="${CONFIG.BASE_IMAGE_URL + item.pictureId}" alt="${item.name}" />
-  <div class="movie__info">
+const createRestaurantDetailTemplate = (item) => `
+  <h2 class="restaurant__title">${item.name}</h2>
+  <img class="lazyload restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + item.pictureId}" alt="${item.name}" />
+  <div class="restaurant__info">
     <h3>Information</h3>
     <h4>Categories</h4>
     <p>${item.categories.map((category) => ` ${category.name}`)}</p>
@@ -14,18 +14,18 @@ const createMovieDetailTemplate = (item) => `
     <h4>Rating</h4>
     <p>${item.rating}</p>
   </div>
-  <div class="movie__menus">
+  <div class="restaurant__menus">
     <h3>Menu</h3>
     <h4>• Foods</h4>
     <p>${item.menus.foods.map((food) => ` ${food.name}`)}</p>
     <h4>• Drinks</h4>
     <p>${item.menus.drinks.map((drink) => ` ${drink.name}`)}</p>
   </div>
-  <div class="movie__overview">
+  <div class="restaurant__overview">
     <h3>Description</h3>
     <p>${item.description}</p>
   </div>
-  <div class="movie__review">
+  <div class="restaurant__review">
     <h3>Reviews</h3>
     ${item.customerReviews.map((cust) => (
     `<div>
@@ -38,15 +38,15 @@ const createMovieDetailTemplate = (item) => `
 `;
 
 const createRestaurantItemTemplate = (item) => `
-  <div class="movie-item">
-    <div class="movie-item__header">
-      <img class="lazyload movie-item__header__poster" alt="${item.name}"
+  <div class="restaurant-item">
+    <div class="restaurant-item__header">
+      <img class="lazyload restaurant-item__header__poster" alt="${item.name}"
           data-src="${item.pictureId ? CONFIG.BASE_IMAGE_URL + item.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
-      <div class="movie-item__header__rating">
-        <p>⭐️<span class="movie-item__header__rating__score">${item.rating}</span></p>
+      <div class="restaurant-item__header__rating">
+        <p>⭐️<span class="restaurant-item__header__rating__score">${item.rating}</span></p>
       </div>
     </div>
-    <div class="movie-item__content">
+    <div class="restaurant-item__content">
       <h3>${item.name}</h3>
       <p>${item.description}</p>
       <button onclick="location.href='/#/detail/${item.id}'">Detail</button>
@@ -55,20 +55,20 @@ const createRestaurantItemTemplate = (item) => `
 `;
 
 const createLikeButtonTemplate = () => `
-  <button aria-label="like this movie" id="likeButton" class="like">
+  <button aria-label="like this restaurant" id="likeButton" class="like">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
 
 const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="likeButton" class="like">
+  <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
 export {
   createRestaurantItemTemplate,
-  createMovieDetailTemplate,
+  createRestaurantDetailTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
 };

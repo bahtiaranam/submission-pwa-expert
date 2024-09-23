@@ -35,20 +35,20 @@
     margin: 0;
   }
  
-  .movies {
+  .restaurants {
     grid-template-columns: 1fr 1fr;
   }
  
-  .movie {
+  .restaurant {
     grid-template-columns: auto 1fr;
   }
  
-  .movie .movie__title {
+  .restaurant .restaurant__title {
     grid-column-start: 1;
     grid-column-end: 3;
   }
  
-  .movie .movie__overview {
+  .restaurant .restaurant__overview {
     grid-column-start: 1;
     grid-column-end: 3;
   }
@@ -61,7 +61,7 @@
 }
  
 @media screen and (min-width: 850px) {
-  .movies {
+  .restaurants {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -70,13 +70,13 @@
   .landing-page {
     width: 1000px;
   }
-  .movies {
+  .restaurants {
     grid-template-columns: repeat(4, 1fr);
   }
 }
  
 @media screen and (min-width: 1600px) {
-  .movies {
+  .restaurants {
       grid-template-columns: repeat(5, 1fr);
   }
 }

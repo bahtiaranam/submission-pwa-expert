@@ -12,7 +12,7 @@ const Home = {
         </div>
         <div class="content">
             <h2 class="content__heading">Explore Resturants</h2>
-            <div id="movies" class="movies">
+            <div id="restaurants" class="restaurants">
             </div>
         </div>
       `;
@@ -21,7 +21,7 @@ const Home = {
   async afterRender() {
     // Fungsi ini akan dipanggil setelah render()
     const res = await RestaurantDbSource.allRestaurant();
-    const listContainer = document.getElementById('movies');
+    const listContainer = document.getElementById('restaurants');
     res.forEach((item) => {
       listContainer.innerHTML += createRestaurantItemTemplate(item);
     });

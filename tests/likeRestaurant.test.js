@@ -2,9 +2,9 @@ import {
   describe, it, expect, beforeEach,
 } from '@jest/globals';
 import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator';
-import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb';
+import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb';
 
-describe('Liking A Movie', () => {
+describe('Liking A Restaurant', () => {
   const addLikeButtonContainer = () => {
     document.body.innerHTML = '<div id="likeButtonContainer"></div>';
   };
@@ -13,7 +13,7 @@ describe('Liking A Movie', () => {
     addLikeButtonContainer();
   });
 
-  it('should show the like button when the movie has not been liked before', async () => {
+  it('should show the like button when the restaurant has not been liked before', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
@@ -21,20 +21,20 @@ describe('Liking A Movie', () => {
       },
     });
 
-    expect(document.querySelector('[aria-label="like this movie"]')).toBeTruthy();
+    expect(document.querySelector('[aria-label="like this restaurant"]')).toBeTruthy();
   });
 
-  it('should not show the unlike button when the movie has not been liked before', async () => {
+  it('should not show the unlike button when the restaurant has not been liked before', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
         id: 1,
       },
     });
-    expect(document.querySelector('[aria-label="unlike this movie"]')).toBeFalsy();
+    expect(document.querySelector('[aria-label="unlike this restaurant"]')).toBeFalsy();
   });
 
-  it('should be able to like the movie', async () => {
+  it('should be able to like the restaurant', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
@@ -44,13 +44,13 @@ describe('Liking A Movie', () => {
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
     // Memastikan film berhasil disukai
-    const movie = await FavoriteMovieIdb.getMovie(1);
-    expect(movie).toEqual({ id: 1 });
+    const restaurant = await FavoriteRestaurantIdb.getRestaurant(1);
+    expect(restaurant).toEqual({ id: 1 });
 
-    await FavoriteMovieIdb.deleteMovie(1);
+    await FavoriteRestaurantIdb.deleteRestaurant(1);
   });
 
-  it('should not add a movie again when its already liked', async () => {
+  it('should not add a restaurant again when its already liked', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
@@ -58,16 +58,16 @@ describe('Liking A Movie', () => {
       },
     });
     // Tambahkan film dengan ID 1 ke daftar film yang disukai
-    await FavoriteMovieIdb.putMovie({ id: 1 });
+    await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
     // Simulasikan pengguna menekan tombol suka film
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
     // Tidak ada film yang ganda
-    expect(await FavoriteMovieIdb.getAllMovies()).toEqual([{ id: 1 }]);
-    await FavoriteMovieIdb.deleteMovie(1);
+    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
+    await FavoriteRestaurantIdb.deleteRestaurant(1);
   });
 
-  it('should not add a movie when it has no id', async () => {
+  it('should not add a restaurant when it has no id', async () => {
     const renderButton = await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {},
