@@ -43,7 +43,7 @@ describe('Liking A Restaurant', () => {
     });
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
-    // Memastikan film berhasil disukai
+    // Memastikan resto berhasil disukai
     const restaurant = await FavoriteRestaurantIdb.getRestaurant(1);
     expect(restaurant).toEqual({ id: 1 });
 
@@ -57,12 +57,12 @@ describe('Liking A Restaurant', () => {
         id: 1,
       },
     });
-    // Tambahkan film dengan ID 1 ke daftar film yang disukai
+    // Tambahkan resto dengan ID 1 ke daftar resto yang disukai
     await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
-    // Simulasikan pengguna menekan tombol suka film
+    // Simulasikan pengguna menekan tombol suka resto
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
-    // Tidak ada film yang ganda
+    // Tidak ada resto yang ganda
     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
     await FavoriteRestaurantIdb.deleteRestaurant(1);
   });

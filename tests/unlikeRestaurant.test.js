@@ -57,7 +57,7 @@ describe('Unliking A Restaurant', () => {
         id: 1,
       },
     });
-    // Tambahkan film dengan ID 1 ke daftar resto yang disukai
+    // Tambahkan resto dengan ID 1 ke daftar resto yang disukai
     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
 
     // Simulasikan pengguna menekan tombol suka restaurant

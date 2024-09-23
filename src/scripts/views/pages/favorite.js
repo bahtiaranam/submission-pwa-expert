@@ -19,7 +19,7 @@ const Favorite = {
 
     if (restaurants.length === 0) {
       restaurantsContainer.innerHTML = `
-        <p class="restaurant-item__not__found">Tidak ada film untuk ditampilkan</p>
+        <p class="restaurant-item__not__found">Tidak ada restoran untuk ditampilkan</p>
       `;
     } else {
       restaurants.forEach((restaurant) => {
